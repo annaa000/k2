@@ -75,6 +75,26 @@
 	<div class="footer">
 		<jsp:include page="footer.jsp"/>
 	</div>
+	
+	<script>
+    document.getElementById('vendi').addEventListener('click', function(event) {
+        var nome = document.getElementsByName('nome')[0].value;
+        var prezzo = document.getElementsByName('prezzo')[0].value;
+        var spedizione = document.getElementsByName('spedizione')[0].value;
+        var descrizione = document.getElementsByName('descrizione')[0].value;
+
+        if (!isValidInput(nome) || !isValidInput(prezzo) || !isValidInput(spedizione) || !isValidInput(descrizione)) {
+            alert('Input non valido.');
+            event.preventDefault();
+        }
+    });
+
+    function isValidInput(input) {
+        var regex = /^[a-zA-Z0-9\s.,'-]+$/;
+        return regex.test(input);
+    }
+</script>
+	
 </body>
 
 </html>
